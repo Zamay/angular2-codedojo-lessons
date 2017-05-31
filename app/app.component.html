@@ -4,16 +4,28 @@
 </header>
 
 <main>
-    <section class="todo-list" *ngIf="todos.length">  <!--есди массив пуст - то не отражать -->
-        <div class="todo-item" *ngFor="let todo of todos" [ngClass]="{'completed': true}"> <!--ngFor перебрать массив и вывести значение -->
-            <button class="checkbox icon">
-                <i class="material-icons">check_box_outline_blank</i>
+    <!--есди массив пуст - то не отражать -->
+    <section class="todo-list" *ngIf="todos.length">
+        <!--ngFor перебрать массив и вывести значение -->
+        <!--<div class="todo-item" *ngFor="let todo of todos" [ngClass]="{'completed': todo.completed}"> -->
+        <!-- или [ngClass]="{'completed': todo.completed}" или ...для одного класса-->
+        <div class="todo-item" *ngFor="let todo of todos" [class.completed]="todo.completed">
+            <!-- собития click в () скобках -->
+            <button class="checkbox icon" (click)="toggle(todo)">
+                <!--<i *ngIf="!todo.completed" class="material-icons">check_box_outline_blank</i>-->
+                <!--<i *ngIf="todo.completed" class="material-icons">check_box</i>-->
+                <!-- Одно и тоже ( интерпаляция)-->
+                <!--<i class="material-icons">{{ todo.completed? 'check_box': 'check_box_outline_blank'}}</i>-->
+                <!--3й способ -->
+                <i class="material-icons" [innerText]="todo.completed? 'check_box': 'check_box_outline_blank'"></i>
+                <!--4й способ-->
+                <!--<i class="material-icons" [textContent]="todo.completed? 'check_box': 'check_box_outline_blank'"></i>-->
             </button>
 
-            <span class="title"> {{ todo }} </span>
+            <span class="title"> {{ todo.title }} </span>
 
             <div class="actions">
-                <button class="delete icon">
+                <button class="delete icon" (click)="delete(todo)">
                     <i class="material-icons">delete</i>
                 </button>
             </div>
