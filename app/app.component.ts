@@ -11,11 +11,4 @@ import {todos} from "./shared/data";
 
 export class AppComponent {
     title = 'Andular 2Do';
-    todos: Todo[] = todos;
-
-    create(title: string){
-        const todo = new Todo(title);
-        this.todos.push(todo)
-
-    }
 }

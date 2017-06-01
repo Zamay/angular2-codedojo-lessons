@@ -11,9 +11,10 @@ export class TodoItemComponent {
     // todo - это свойство !
     @Input() todo: Todo;
     @Output() delete = new EventEmitter();
+    @Output() toggle = new EventEmitter();
 
-    toggle(){
-        this.todo.completed = !this.todo.completed
+    OnToggle(){
+        this.toggle.emit(this.todo);
     }
 
     onDelete(){
