@@ -30,11 +30,11 @@ export class AppComponent {
     todos = todos;
     newTodoTitle: string = '';
 
-    create(event: Event, title: string){
-        event.preventDefault();
+    create(){
 
-        let todo: Todo = new Todo(title);
+        let todo: Todo = new Todo(this.newTodoTitle);
         this.todos.push(todo);
+        this.newTodoTitle = '';
     }
 
     toggle(todo: Todo){
