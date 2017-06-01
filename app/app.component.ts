@@ -1,5 +1,8 @@
 import {Component} from "@angular/core";
 
+class Todo {
+    constructor(public title:string, public completed: boolean = false){}
+}
 const todos = [
     {
         title: 'Изучить JS',
@@ -25,16 +28,25 @@ const todos = [
 export class AppComponent {
     title = 'Andular 2Do';
     todos = todos;
+    newTodoTitle: string = '';
 
-    toggle(todo: any){
+    create(event: Event, title: string){
+        event.preventDefault();
+
+        let todo: Todo = new Todo(title);
+        this.todos.push(todo);
+    }
+
+    toggle(todo: Todo){
         todo.completed = !todo.completed;
     }
 
-    delete(todo: any){
+    delete(todo: Todo){
         let index = this.todos.indexOf(todo);
 
         if(index > -1 ) {
             this.todos.splice(index, 1);
         }
     }
+
 }
