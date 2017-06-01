@@ -4,29 +4,7 @@
 </header>
 
 <main>
-    <!--<form class="todo-form" (submit)="create($event, titleInput.value); titleInput.value = ''">-->
-        <!--<input type="text" placeholder="Что нужно сделать?" #titleInput>-->
-        <!--<button type="submit">Добавить</button>-->
-    <!--</form>-->
+    <todo-form></todo-form>
 
-    <form class="todo-form" (ngSubmit)="create(); todoForm.reset()" #todoForm="ngForm">
-        <input type="text" name="title" [(ngModel)]="newTodoTitle" placeholder="Что нужно сделать?" required>
-        <button type="submit" [disabled]="todoForm.form.invalid">Добавить</button>
-    </form>
-
-    <section class="todo-list" *ngIf="todos.length">
-        <div class="todo-item" *ngFor="let todo of todos" [class.completed]="todo.completed">
-            <button class="checkbox icon" (click)="toggle(todo)">
-                <i class="material-icons" [innerText]="todo.completed? 'check_box': 'check_box_outline_blank'"></i>
-            </button>
-
-            <span class="title"> {{ todo.title }} </span>
-
-            <div class="actions">
-                <button class="delete icon" (click)="delete(todo)">
-                    <i class="material-icons">delete</i>
-                </button>
-            </div>
-        </div>
-    </section>
+    <todo-list></todo-list>
 </main>
