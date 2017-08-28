@@ -5,7 +5,7 @@
         },
         map: {
             app: 'app',
-
+            'ng2-dnd': 'node_modules/ng2-dnd/bundles/index.umd.js',
             '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
             '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
             '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',

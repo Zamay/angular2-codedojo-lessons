@@ -1,5 +1,10 @@
-<div class="todo-list" *ngIf="todos.length">
+<div class="todo-list" *ngIf="todos.length" dnd-sortable-container [sortableData]="todos">
 
-    <todo-item *ngFor="let todo of todos" [todo]="todo" (delete)="delete($event)" (toggle)="toggle($event)"></todo-item>
+    <todo-item *ngFor="let todo of todos; let i = index"
+               dnd-sortable [sortableIndex]="i"
+               [todo]="todo"
+               (delete)="delete($event)"
+               (toggle)="toggle($event)">
+    </todo-item>
 
 </div>

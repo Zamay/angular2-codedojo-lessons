@@ -13,7 +13,7 @@ export class TodoItemComponent {
     @Output() delete = new EventEmitter();
     @Output() toggle = new EventEmitter();
 
-    OnToggle(){
+    onToggle(){
         this.toggle.emit(this.todo);
     }
 
